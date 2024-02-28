@@ -36,13 +36,13 @@ if [ -s "$file" ]; then
 else
   previous_file=no
 fi
-
+wget_options='--no-check-certificate'
 if [ $previous_file = no -o "$remote_size" != "$local_size" ]; then
   while [ "$#" -gt 0 ]; do
     if [ "$#" -gt 1 ]; then
-      wget --tries 5 --timeout 15 --continue "$1" && break
+      wget $wget_options --tries 5 --timeout 15 --continue "$1" && break
     else
-      wget --continue "$1" || exit
+      wget $wget_options --continue "$1" || exit
     fi
     shift
   done
