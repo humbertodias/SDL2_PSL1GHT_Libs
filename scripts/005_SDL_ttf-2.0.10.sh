@@ -14,6 +14,7 @@ cat ../patches/SDL_ttf-$VERSION.patch | patch -p1 || { exit 1; }
 	--with-sdl-exec-prefix="$PS3DEV/portlibs/ppu" \
 	--without-x \
 	--disable-sdltest \
+	--enable-static \
     	|| { exit 1; }
 
 make && make install || { exit 1; }

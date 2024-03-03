@@ -12,6 +12,7 @@ cat ../patches/SDL_image-1.2.10.patch | patch -p1 || { exit 1; }
 	--disable-sdltest \
 	--with-sdl-exec-prefix="$PS3DEV/portlibs/ppu" \
 	--disable-shared \
+	--enable-static \
 	LIBPNG_CFLAGS="`$PS3DEV/portlibs/ppu/bin/libpng-config --cflags`" \
 	LIBPNG_LIBS="`$PS3DEV/portlibs/ppu/bin/libpng-config --libs`" \
     	|| { exit 1; }

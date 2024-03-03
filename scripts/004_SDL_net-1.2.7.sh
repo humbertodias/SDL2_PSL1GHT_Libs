@@ -18,6 +18,7 @@ export CFLAGS
 	--disable-sdltest \
 	--with-sdl-exec-prefix="$PS3DEV/portlibs/ppu" \
 	--disable-shared \
+	--enable-static \
     	|| { exit 1; }
 
 make && make install || { exit 1; }

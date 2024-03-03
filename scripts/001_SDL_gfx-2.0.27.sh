@@ -12,6 +12,7 @@ cp ../archives/config.sub ../archives/config.guess . || { exit 1; }
 	--without-x \
 	--disable-sdltest \
 	--disable-mmx \
+	--enable-static \
     	|| { exit 1; }
 
 aclocal_kluge='am__aclocal_m4_deps='
