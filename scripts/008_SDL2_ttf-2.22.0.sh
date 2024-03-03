@@ -10,6 +10,8 @@ rm -Rf SDL2_ttf && mkdir SDL2_ttf && tar --strip-components=1 --directory=SDL2_t
 	--without-x \
 	--disable-sdltest \
 	--disable-harfbuzz \
+	--disable-shared \
+	--enable-static \
     	|| { exit 1; }
 
 make && make install || { exit 1; }
