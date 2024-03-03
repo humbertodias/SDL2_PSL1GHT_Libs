@@ -6,8 +6,25 @@ export CFLAGS
 export LDFLAGS
 export PKG_CONFIG_PATH
 
-./download.sh config.guess
-./download.sh config.sub
+rm -rf build
+mkdir build
+cd build
+ln -s ../archives .
+ln -s ../depends .
+ln -s ../patches .
+ln -s ../scripts .
+ln -s ../download.sh .
+
+
+## Fetch the depend scripts.
+DEPEND_SCRIPTS=`ls depends/*.sh | sort`
+
+## Run all the depend scripts.
+for SCRIPT in $DEPEND_SCRIPTS; do "$SCRIPT" || { echo "$SCRIPT: Failed."; exit 1; } done
+
+../download.sh config.guess
+../download.sh config.sub
+
 
 ## Fetch the build scripts.
 BUILD_SCRIPTS=`ls scripts/*.sh | sort`
