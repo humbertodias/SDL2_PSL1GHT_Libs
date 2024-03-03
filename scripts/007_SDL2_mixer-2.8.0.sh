@@ -1,9 +1,8 @@
 VERSION=2.8.0
-./download.sh http://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-$VERSION.tar.gz || { exit 1; }
+wget http://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-$VERSION.tar.gz -O SDL2_mixer.tar.gz
 
-tar xfvz archives/SDL2_mixer-$VERSION.tar.gz || { exit 1; }
-
-cd SDL2_mixer-$VERSION || { exit 1; }
+## Unpack the source code.
+rm -Rf SDL2_mixer && mkdir SDL2_mixer && tar --strip-components=1 --directory=SDL2_mixer -xvzf SDL2_mixer.tar.gz && cd SDL2_mixer
 
 cp ../archives/config.sub ../archives/config.guess build-scripts/ || { exit 1; }
 

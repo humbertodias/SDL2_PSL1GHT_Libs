@@ -1,9 +1,8 @@
 VERSION=2.2.0
-./download.sh SDL2_net-$VERSION.tar.gz || { exit 1; }
+wget https://github.com/libsdl-org/SDL_net/releases/download/release-2.2.0/SDL2_net-$VERSION.tar.gz -O SDL2_net.tar.gz
 
-tar xfvz archives/SDL2_net-$VERSION.tar.gz || { exit 1; }
-
-cd SDL2_net-$VERSION || { exit 1; }
+## Unpack the source code.
+rm -Rf SDL2_net && mkdir SDL2_net && tar --strip-components=1 --directory=SDL2_net -xvzf SDL2_net.tar.gz && cd SDL2_net
 
 cp ../archives/config.sub ../archives/config.guess . || { exit 1; }
 
