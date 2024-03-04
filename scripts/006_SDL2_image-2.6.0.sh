@@ -1,4 +1,4 @@
-VERSION=2.8.2
+VERSION=2.6.0
 ./download.sh SDL2_image-$VERSION.tar.gz || { exit 1; }
 
 tar xfvz archives/SDL2_image-$VERSION.tar.gz || { exit 1; }
