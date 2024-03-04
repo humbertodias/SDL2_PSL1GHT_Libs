@@ -1,9 +1,11 @@
 VERSION=2.6.0
-./download.sh SDL2_image-$VERSION.tar.gz || { exit 1; }
+wget https://github.com/libsdl-org/SDL_image/releases/download/release-$VERSION/SDL2_image-$VERSION.tar.gz -O SDL2_image.tar.gz
 
-tar xfvz archives/SDL2_image-$VERSION.tar.gz || { exit 1; }
+## Unpack the source code.
+rm -Rf SDL2_image && mkdir SDL2_image && tar --strip-components=1 --directory=SDL2_image -xvzf SDL2_image.tar.gz
 
-cd SDL2_image-$VERSION || { exit 1; }
+## Create the build directory.
+cd SDL2_image
 
 cp ../archives/config.sub ../archives/config.guess . || { exit 1; }
 
