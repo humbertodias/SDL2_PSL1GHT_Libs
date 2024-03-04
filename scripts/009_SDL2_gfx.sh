@@ -1,15 +1,17 @@
-VERSION=2.0.27
-./download.sh SDL_gfx-$VERSION.tar.gz || { exit 1; }
+wget https://github.com/humbertodias/SDL2_gfx/tarball/main -O SDL2_gfx.tar.gz
 
-tar xfvz archives/SDL_gfx-$VERSION.tar.gz || { exit 1; }
+## Unpack the source code.
+rm -Rf SDL2_gfx && mkdir SDL2_gfx && tar --strip-components=1 --directory=SDL2_gfx -xvzf SDL2_gfx.tar.gz
 
-cd SDL_gfx-$VERSION || { exit 1; }
+## Create the build directory.
+cd SDL2_gfx
 
-cp ../archives/config.sub ../archives/config.guess . || { exit 1; }
+## Required resource
+ln -s README.md README
 
+./autogen.sh
 ./configure --prefix="$PS3DEV/portlibs/ppu" --host=powerpc64-ps3-elf \
 	--with-sdl-exec-prefix="$PS3DEV/portlibs/ppu" \
-	--without-x \
 	--disable-sdltest \
 	--disable-mmx \
 	--disable-shared \
