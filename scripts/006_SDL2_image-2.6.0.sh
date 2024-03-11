@@ -1,4 +1,4 @@
-VERSION=2.8.2
+VERSION=2.6.0
 wget https://github.com/libsdl-org/SDL_image/releases/download/release-$VERSION/SDL2_image-$VERSION.tar.gz -O SDL2_image.tar.gz
 
 ## Unpack the source code.
