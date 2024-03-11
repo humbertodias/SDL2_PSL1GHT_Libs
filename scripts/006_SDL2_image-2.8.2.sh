@@ -1,4 +1,4 @@
-VERSION=2.5.1
+VERSION=2.8.2
 wget https://github.com/libsdl-org/SDL_image/releases/download/release-$VERSION/SDL2_image-$VERSION.tar.gz -O SDL2_image.tar.gz
 
 ## Unpack the source code.
@@ -16,7 +16,7 @@ cp ../archives/config.sub ../archives/config.guess . || { exit 1; }
 	--with-sdl-exec-prefix="$PS3DEV/portlibs/ppu" \
 	--disable-shared \
 	--enable-static \
-	SDL2_CONFIG="`$PSL1GHT/sdl2-config --cflags --libs`" \
+	SDL2_CONFIG="`$PS3DEV/portlibs/ppu/bin/sdl2-config --cflags --libs`" \
 	LIBPNG_CFLAGS="`$PS3DEV/portlibs/ppu/bin/libpng-config --cflags`" \
 	LIBPNG_LIBS="`$PS3DEV/portlibs/ppu/bin/libpng-config --libs`" \
     	|| { exit 1; }
