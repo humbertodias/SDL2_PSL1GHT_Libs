@@ -16,7 +16,7 @@ cp ../archives/config.sub ../archives/config.guess . || { exit 1; }
 	--with-sdl-exec-prefix="$PS3DEV/portlibs/ppu" \
 	--disable-shared \
 	--enable-static \
-	SDL2_CONFIG="`$PS3DEV/portlibs/ppu/bin/sdl2-config --cflags --libs`" \
+	SDL2_CONFIG="$PS3DEV/portlibs/ppu/bin/sdl2-config" \
 	LIBPNG_CFLAGS="`$PS3DEV/portlibs/ppu/bin/libpng-config --cflags`" \
 	LIBPNG_LIBS="`$PS3DEV/portlibs/ppu/bin/libpng-config --libs`" \
     	|| { exit 1; }
