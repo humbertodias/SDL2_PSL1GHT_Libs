@@ -1,4 +1,4 @@
-IMAGE=hldtux/ps3dev-sdl2
+IMAGE=hldtux/ps3dev
 
 test:
 	DOCKER_DEFAULT_PLATFORM=linux/amd64 docker run -i --rm -v "`pwd`:/src" -w /src ${IMAGE} ./make_SDL_Libs.sh

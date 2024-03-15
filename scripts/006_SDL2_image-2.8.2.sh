@@ -7,16 +7,19 @@ rm -Rf SDL2_image && mkdir SDL2_image && tar --strip-components=1 --directory=SD
 ## Create the build directory.
 cd SDL2_image
 
-cp ../archives/config.sub ../archives/config.guess . || { exit 1; }
+cp ../archives/config.* . || { exit 1; }
 
 # cat ../patches/SDL_image-2.8.2.patch | patch -p1 || { exit 1; }
 # \
+
+
 ./configure --prefix="$PS3DEV/portlibs/ppu" --host=powerpc64-ps3-elf \
 	--disable-sdltest \
 	--with-sdl-exec-prefix="$PS3DEV/portlibs/ppu" \
 	--disable-shared \
 	--enable-static \
-	SDL2_CONFIG="$PS3DEV/portlibs/ppu/bin/sdl2-config" \
+	CFLAGS="$CFLAGS `sdl2-config --cflags`" \
+	LDFLAGS="$LDFLAGS `sdl2-config --libs`" \
 	LIBPNG_CFLAGS="`$PS3DEV/portlibs/ppu/bin/libpng-config --cflags`" \
 	LIBPNG_LIBS="`$PS3DEV/portlibs/ppu/bin/libpng-config --libs`" \
     	|| { exit 1; }

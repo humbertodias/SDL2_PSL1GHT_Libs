@@ -4,3 +4,7 @@ config.guess
 config.sub
 .vscode
 .DS_Store
+sdl_psl1ght
+SDL*/
+sdl2_psl1ght
+SDL2*/
