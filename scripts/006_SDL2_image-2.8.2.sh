@@ -12,14 +12,15 @@ cp ../archives/config.* . || { exit 1; }
 # cat ../patches/SDL_image-2.8.2.patch | patch -p1 || { exit 1; }
 # \
 
+unset CFLAGS
+unset CPPFLAGS
+unset LDFLAGS
 ./configure --prefix="$PS3DEV/portlibs/ppu" --host=powerpc64-ps3-elf \
 	--disable-sdltest \
 	--with-sdl-exec-prefix="$PS3DEV/portlibs/ppu" \
 	--disable-shared \
 	--enable-static \
-	CXXFLAGS="`sdl2-config --cflags`" \
-	CFLAGS="`sdl2-config --cflags`" \
-	LDFLAGS="`sdl2-config --libs`" \
+	SDL_CFLAGS="`$PS3DEV/portlibs/ppu/bin/sdl2-config --cflags`" \
 	LIBPNG_CFLAGS="`$PS3DEV/portlibs/ppu/bin/libpng-config --cflags`" \
 	LIBPNG_LIBS="`$PS3DEV/portlibs/ppu/bin/libpng-config --libs`" \
     	|| { exit 1; }
