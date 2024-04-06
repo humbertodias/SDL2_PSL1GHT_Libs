@@ -6,7 +6,7 @@ rm -Rf SDL2_gfx && mkdir SDL2_gfx && tar --strip-components=1 --directory=SDL2_g
 ## Create the build directory.
 cd SDL2_gfx
 
-cp ../archives/config.sub ../archives/config.guess build-scripts/ || { exit 1; }
+cp ../archives/config.* . || { exit 1; }
 
 ## Required resource
 ln -s README.md README
